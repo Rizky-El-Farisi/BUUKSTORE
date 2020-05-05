@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-<body>
+<body ng-app="validationApp" ng-controller="mainController">
     <div class="preloader">
         <span class="preloader-spin"></span>
     </div>
@@ -90,28 +90,50 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <form action="#" class="contact-form">
+                <form  id="contactForm" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate="novalidate" >
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error' : comment-form.name.$invalid && !comment-form.name.$pristine }">
-                            <input type="text" ng-minlength="2" ng-model="user.name" ng-pattern="/[a-zA-ZÀ-ž/.& -]+/" placeholder="Name" required>
-                            <p ng-show="comment-form.name.$invalid && !comment-form.name.$pristine" class="help-block" style="color: orange"></p>
-                        </div>
-                        <div class="col-lg-6" ng-class="{ 'has-error' : comment-form.email.$invalid && !comment-form.email.$pristine }">
-                            <input type="email" ng-minlength="2" ng-model="user.email" placeholder="Email" required>
-                            <p ng-show="comment-form.email.$invalid && !comment-form.email.$pristine" class="help-block" style="color: orange"></p>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" ng-minlength="2" ng-model="user.name" ng-pattern="/[a-zA-ZÀ-ž/.& -]+/" placeholder="Subject" required>
-                        </div>
-                        <div class="col-lg-12" ng-class="{ 'has-error' : comment-form.message.$invalid && !comment-form.message.$pristine }">
-                            <textarea ng-minlength="2" ng-minlength="5" ng-model="user.message" ng-pattern="/[a-zA-ZÀ-ž/.& -]+/" placeholder="Message" required></textarea>
-                            <p ng-show="comment-form.message.$invalid && !comment-form.message.$pristine" class="help-block" style="color: orange"></p>
-                        </div>
-                        <div class="col-lg-12">
-                            <input class="button" type="submit" value="Send Message">
-                        </div>
+                      <div class="col-md-12 form-group">
+                      <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" ng-model="name" required>
+                        <p style="color:red;" ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Please input your name</p>
+                      </div>
+                      </div>
                     </div>
-                </form>
+                    <div class="row">
+                      <div class="col-md-12 form-group">
+                      <div class="form-group" ng-class="{ 'has-error' : userForm.number.$invalid && !userForm.number.$pristine }">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="number" class="form-control" ng-model="number"  ng-Model pattern="[0-9]+" required>
+                        <p class="mb-1" style="color:red;" ng-show="userForm.number.$invalid && !userForm.number.$pristine" class="help-block">Please enter your number </p>
+                        <p  style="color:red;"ng-show="userForm.number.$error.pattern" class="help-block">Please enter number only</p>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 form-group">
+                      <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" ng-model="email" required >
+                        <p style="color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Please enter a valid email</p>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 form-group">
+                      <div class="form-group" ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }">
+                        <label for="message">Write Message</label>
+                        <textarea name="message" id="message" name="message" class="form-control " cols="30" rows="8" ng-model="message" required></textarea>
+                        <p style="color:red;" ng-show="userForm.message.$invalid && !userForm.message.$pristine" class="help-block">Please write a message</p>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <input type="submit" value="Send Message" class="btn btn-primary" id="send" name="send">
+                      </div>
+                    </div>
+                  </form>
             </div>
         </div>
     </div>
@@ -223,7 +245,23 @@
 <script src="assets/js/vendor/loopcounter.js"></script>
 <script src="assets/js/vendor/slicknav.min.js"></script>
 <script src="assets/js/active.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="assets/js/angular.js"></script>
+<script src="assets/js/angular-validate.js"></script>
+<script>
+    var validationApp = angular.module('validationApp', []);
+    // create angular controller
+    validationApp.controller('mainController', function ($scope) {
+    // function to submit the form after all validation has occurred
+    $scope.submitForm = function (isValid) {
+    // check to make sure the form is completely valid
+    if (isValid) {
+    alert('Thank you ');
+    window.location.reload();
+    }else
+    alert('Please Fill all the fields');
+    };
+    });
+</script>
 
 </body>
 
