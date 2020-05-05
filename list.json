@@ -1,0 +1,85 @@
+[
+    {
+        "id" : "ceramics",
+        "image" : "education1.jpg",
+        "title" : "Bupena Biologi SMA",        
+        "genre" : "Education"
+        
+    },
+    {
+        "id" : "ceramics",
+        "image" : "education2.jpg",
+        "title" : "Bupena Kimia SMA",        
+        "genre" : "Education"
+    },
+    {
+        "id" : "ceramics",
+        "image" : "education3.jpg",
+        "title" : "Bupena Fisika SMA",        
+        "genre" : "Education"
+        
+    },
+    {
+        "id" : "branding",
+        "image" : "history1.jpg",
+        "title" : "The Lone Samurai Miyamoto Musashi",        
+        "genre" : "History"
+        
+    },
+    {
+        "id" : "branding",
+        "image" : "history2.jpg",
+        "title" : "Mein Kampf Hitler",        
+        "genre" : "History"
+        
+    },
+    {
+        "id" : "branding",
+        "image" : "history3.jpg",
+        "title" : "Stalin Waiting for Hitler 1929-1941",        
+        "genre" : "History"
+        
+    },
+    {
+        "id" : "design",
+        "image" : "romance1.jpg",
+        "title" : "Samrok Infinite Battle",        
+        "genre" : "Romance"
+        
+    },
+    {
+        "id" : "design",
+        "image" : "romance2.jpg",
+        "title" : "Daddy Long Legs",        
+        "genre" : "Romance"
+        
+    },
+    {
+        "id" : "design",
+        "image" : "romance3.jpg",
+        "title" : "Genji Monogatari",        
+        "genre" : "Romance"
+        
+    },
+    {
+        "id" : "photography",
+        "image" : "action1.jpg",
+        "title" : "Taiko",        
+        "genre" : "Action"
+        
+    },
+    {
+        "id" : "photography",
+        "image" : "action2.jpg",
+        "title" : "James Bond Casino Royale",        
+        "genre" : "Action"
+        
+    },
+    {
+        "id" : "photography",
+        "image" : "action3.jpg",
+        "title" : "The Advanture of Tintin in The Calculus Affair",        
+        "genre" : "Action"
+        
+    }
+]
